@@ -2,6 +2,7 @@ package com.example.ccmsreportes.adapter;
 
 import android.annotation.SuppressLint;
 import android.content.Context;
+import android.content.Intent;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -11,7 +12,10 @@ import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.example.ccmsreportes.ListActivity;
+import com.example.ccmsreportes.Login;
 import com.example.ccmsreportes.R;
+import com.example.ccmsreportes.UpdDelActivity;
 import com.example.ccmsreportes.model.Reportes;
 
 import java.util.List;
@@ -26,6 +30,7 @@ public class ReporteListAdapter extends RecyclerView.Adapter<ReporteListAdapter.
         this.reportesList = reportesList;
         this.elementClickListener=elementClickListener;
     }
+
 
     public void setReportesList(List<Reportes>reportesList){
         this.reportesList = reportesList;

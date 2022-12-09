@@ -23,7 +23,7 @@
         app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
-        android:id="@+id/label_iDReporte"
+        android:id="@+id/txtDispositvoInfo"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="144dp"
@@ -37,7 +37,7 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="39dp"
         app:layout_constraintStart_toStartOf="@+id/lblFechaRegistro"
-        app:layout_constraintTop_toBottomOf="@+id/label_iDReporte" />
+        app:layout_constraintTop_toBottomOf="@+id/txtDispositvoInfo" />
 
     <TextView
         android:id="@+id/lblEstado"
@@ -48,13 +48,14 @@
         app:layout_constraintTop_toBottomOf="@+id/lblDescripcion" />
 
     <TextView
-        android:id="@+id/lblFechaRegistro"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="68dp"
-        android:layout_marginTop="62dp"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/lblEstado" />
+    android:id="@+id/lblFechaRegistro"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:layout_marginStart="68dp"
+    android:layout_marginTop="62dp"
+    app:layout_constraintStart_toStartOf="parent"
+    app:layout_constraintTop_toBottomOf="@+id/lblEstado" />
+
 
 
     <!--</ScrollView>-->

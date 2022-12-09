@@ -12,6 +12,7 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
+import android.widget.Toast;
 
 import com.example.ccmsreportes.adapter.ReporteListAdapter;
 import com.example.ccmsreportes.api.LocalNetworkAPI;
@@ -100,13 +101,14 @@ public class ListActivity extends AppCompatActivity implements ReporteListAdapte
     }
 
     @Override
-    public void onBtnElementClick(Reportes reportes) {
+    public void onBtnElementClick(Reportes reporte) {
         //Toast.makeText(this, persona.getNombre().toString() + " " + persona.getApPaterno().toString(),
         //      Toast.LENGTH_SHORT).show();
 
 
         Intent intent = new Intent(ListActivity.this, UpdDelActivity.class);
-        //intent.putExtra("Reporte",reportes);
+        intent.putExtra("Reporte",reporte.getIdReporte());
+
         startActivity(intent);
     }
 }

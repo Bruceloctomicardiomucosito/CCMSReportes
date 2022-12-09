@@ -1,10 +1,9 @@
 package com.example.ccmsreportes.api;
 
+import com.example.ccmsreportes.model.DetallesReporte;
 import com.example.ccmsreportes.model.Reportes;
 import com.example.ccmsreportes.model.ResultReportes;
 import com.example.ccmsreportes.model.ResponseReporte;
-
-import java.util.List;
 
 import retrofit2.Call;
 import retrofit2.http.Body;
@@ -35,6 +34,9 @@ public interface LocalNetworkAPI {///Aaah si miira... aqui tengo la interface...
 */
     @GET("/getReportesProfe/{idProf}") ///Recibe y envia el id ... aah entiendo ...
     Call<ResultReportes> getListReportes(@Path("idProf") int id); ////Zimon- aaah vamos para allá--- Se usa aaqui ...
+
+    @GET("/getDetallesReporte/{idRep}")
+    Call<DetallesReporte> getDetalleReporte(@Path("idRep") int id);
 
     @Headers({"Content-Type: application/json"})
     @POST("reportes")
