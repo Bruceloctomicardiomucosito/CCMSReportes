@@ -1,5 +1,7 @@
 package com.example.ccmsreportes.viewmodel;
 
+import android.util.Log;
+
 import androidx.lifecycle.LiveData;
 import androidx.lifecycle.MutableLiveData;
 import androidx.lifecycle.ViewModel;
@@ -12,6 +14,7 @@ import com.example.ccmsreportes.service.ServiceRetrofit;
 import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
+import android.util.Log;
 
 public class ListaReporteViewModel extends ViewModel{
     ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
@@ -27,20 +30,29 @@ public class ListaReporteViewModel extends ViewModel{
     public void setReporte(ResultReportes list){this.list.setValue(list);}
     /////Llamar al servicio
     public void CallServiceGetReporte(int page){
+
         localNetworkAPI = ServiceRetrofit.getClient().create(LocalNetworkAPI.class);
-        retrofit2.Call<ResultReportes> call = localNetworkAPI.getListReportes();
+
+        retrofit2.Call<ResultReportes> call = localNetworkAPI.getListReportes(1);///Aqui le mandas el id de lo que quieres consultar
+        ///Esta es la respuesta de la consulta.....
         call.enqueue(new Callback<ResultReportes>() {
             @Override
+            ///Creo que aqui hay algo qeu tiene que ver con que no me muestre nada xdxdxd
             public void onResponse(Call<ResultReportes> call, Response<ResultReportes> response) {
+                Log.i("ubicacion","inicio de metodo");
                 if(response.isSuccessful()){
+                    Log.i("ubicacion","Entra al if");
                     list.postValue(response.body());
                 }
-            }
-            @Override
+            }///Simona simona.. no sabemos si trae los datos.. tienes razon ... a ver .. toy ivestigando como imndo com inrpimir los JSONS
+            @Override ///Creo que ya lo encontré y estpa vuelto loco xd toy viendo com o depurar
+            ///Le di en debuggear... a ver  cuanto se tarda esta cosa xdxdxd
+            ///Paciencia
             public void onFailure(Call<ResultReportes> call, Throwable t) {
+                Log.i("ubicacion","Entra al else");
                 list.postValue(null);
             }
-        });
+        }); ////chiale.. no sé como comstrar esos logs en java xdxd deja veo como a ver que encuentro
     }
     ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
     /*

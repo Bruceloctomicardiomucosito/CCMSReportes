@@ -11,7 +11,6 @@ import android.widget.Toast;
 import androidx.appcompat.app.AppCompatActivity;
 
 import com.example.ccmsreportes.api.LocalNetworkAPI;
-import com.example.ccmsreportes.database.AppDatabase;
 import com.example.ccmsreportes.model.Reportes;
 import com.example.ccmsreportes.model.ResponseReporte;
 import com.example.ccmsreportes.service.ServiceRetrofit;
@@ -25,7 +24,6 @@ public class MainActivity extends AppCompatActivity {
 
     private EditText nombreUsusario, id_Dispositivo, descripcion;
     private Button guardadReporte, btnSiguiente;
-    private AppDatabase db;
     //////
     private Reportes reportes;
     private LocalNetworkAPI localNetworkAPI;
@@ -61,12 +59,12 @@ public class MainActivity extends AppCompatActivity {
                 reportes = new Reportes();
                 String i = id_Dispositivo.getText().toString();
                 int id = Integer.parseInt(i);
-                reportes.setIdDevice(id);
+                //reportes.setIdDevice(id);
                 LocalDate fechaRegistro = LocalDate.now();
-                reportes.setFecha(fechaRegistro.toString());
+                //reportes.setFecha(fechaRegistro.toString());
                 reportes.setDescripcion(descripcion.getText().toString());
-                reportes.setNombreProf("Calonsho Mora");
-                reportes.setIdProf(1);
+                //reportes.setNombreProf("Calonsho Mora");
+                //reportes.setIdProf(1);
                 reportes.setRevisado(1);
                 //reportesRepositorio.insert(reportes);
                 Toast.makeText(MainActivity.this,"Reporte registrado correctamente...",Toast.LENGTH_SHORT).show();

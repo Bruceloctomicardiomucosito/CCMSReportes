@@ -13,8 +13,49 @@ import org.w3c.dom.Text;
 import java.io.Serializable;
 import java.util.Date;
 
-@Entity(tableName = "Tb_Reportes")
+public class Reportes
+{
 
+    ///el idREporte es la id de la Malfuncion
+    @SerializedName("Id_Malfuncion")
+    @Expose
+    private int id_Reporte;
+
+    @SerializedName("Descripcion")
+    @Expose
+    private String descripcion;
+
+    @SerializedName("Revisado")
+    @Expose
+    private int revisado;
+
+    public Reportes(){}
+
+    ///// Get and set
+    public int getId_Reporte() {
+        return id_Reporte;
+    }
+    public void setId_Reporte(int id_Reporte) {
+        this.id_Reporte = id_Reporte;
+    }
+
+    public String getDescripcion() {
+        return descripcion;
+    }
+
+    public void setDescripcion(String descripcion) {
+        this.descripcion = descripcion;
+    }
+
+    public int getRevisado() {
+        return revisado;
+    }
+
+    public void setRevisado(int revisado) {
+        this.revisado = revisado;
+    }
+}
+/*
 public class Reportes implements Serializable {
     @NonNull
     @PrimaryKey(autoGenerate = true)
@@ -107,3 +148,4 @@ public class Reportes implements Serializable {
         this.revisado = revisado;
     }
 }
+ */

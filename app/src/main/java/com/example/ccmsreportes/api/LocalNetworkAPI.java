@@ -13,7 +13,7 @@ import retrofit2.http.POST;
 import retrofit2.http.PUT;
 import retrofit2.http.Path;
 
-public interface LocalNetworkAPI {
+public interface LocalNetworkAPI {///Aaah si miira... aqui tengo la interface....
     //Codigo Original
       /*
     @GET("personas")
@@ -31,9 +31,8 @@ public interface LocalNetworkAPI {
     @PUT("personas/{id}")
     Call<ResponsePersona> setPerson(@Path("id") int id, @Body Persona persona);
 */
-
-    @GET("reportes")
-    Call<ResultReportes> getListReportes();
+    @GET("/getReportesProfe/{idProf}") ///Recibe y envia el id ... aah entiendo ...
+    Call<ResultReportes> getListReportes(@Path("idProf") int id); ////Zimon- aaah vamos para allá--- Se usa aaqui ...
 
     @Headers({"Content-Type: application/json"})
     @POST("reportes")
@@ -46,5 +45,4 @@ public interface LocalNetworkAPI {
     @Headers({"Content-Type: application/json"})
     @PUT("reportes/{id}")
     Call<ResponseReporte> setReporte(@Path("id") int id, @Body Reportes reportes);
-
 }

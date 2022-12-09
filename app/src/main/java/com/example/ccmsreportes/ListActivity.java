@@ -10,15 +10,13 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 
 import com.example.ccmsreportes.adapter.ReporteListAdapter;
 import com.example.ccmsreportes.model.Reportes;
 import com.example.ccmsreportes.model.ResultReportes;
 import com.example.ccmsreportes.viewmodel.ListaReporteViewModel;
-import com.example.ccmsreportes.database.AppDatabase;
-import com.example.ccmsreportes.database.ReportesDao;
-import com.example.ccmsreportes.repository.ReportesRepositorio;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 
 import java.util.List;
@@ -40,6 +38,7 @@ public class ListActivity extends AppCompatActivity implements ReporteListAdapte
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_list);
+        //Log.i("Paulino dice","Me gustan las monas chinas");
 
         //btnNewReporte = (Button) findViewById(R.id.btnNewReporte);
         btnNewReporte = (FloatingActionButton) findViewById(R.id.btnNewReporte);
@@ -95,8 +94,10 @@ public class ListActivity extends AppCompatActivity implements ReporteListAdapte
     public void onBtnElementClick(Reportes reportes) {
         //Toast.makeText(this, persona.getNombre().toString() + " " + persona.getApPaterno().toString(),
         //      Toast.LENGTH_SHORT).show();
+
+
         Intent intent = new Intent(ListActivity.this, UpdDelActivity.class);
-        intent.putExtra("Reporte",reportes);
+        //intent.putExtra("Reporte",reportes);
         startActivity(intent);
     }
 }

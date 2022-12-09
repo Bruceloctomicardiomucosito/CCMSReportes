@@ -6,17 +6,13 @@ import android.os.Bundle;
 import android.widget.Button;
 import android.widget.TextView;
 
-import com.example.ccmsreportes.database.AppDatabase;
 import com.example.ccmsreportes.model.Reportes;
 import com.example.ccmsreportes.viewmodel.ListaReporteViewModel;
-import com.example.ccmsreportes.database.ReportesDao;
-import com.example.ccmsreportes.repository.ReportesRepositorio;
 
 public class UpdDelActivity extends AppCompatActivity{
     private TextView txtDescripcion, txtStatus, txtFechaRegistro;
     private TextView lblId;
     private Button btnEditar,btnEliminar, btnRegresar;
-    private AppDatabase db;
     private Reportes reportes;
     private ListaReporteViewModel reportesViewModel ;
 
@@ -24,11 +20,6 @@ public class UpdDelActivity extends AppCompatActivity{
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_upd_del);
-
-        db=AppDatabase.getInstance(this.getApplicationContext());
-        ReportesDao reportesDao=db.reportesDao();
-        ReportesRepositorio reportesRepositorio = new ReportesRepositorio(reportesDao);
-        reportes=(Reportes) getIntent().getSerializableExtra("Reporte");
 
         //Botones
         /*
@@ -48,7 +39,8 @@ public class UpdDelActivity extends AppCompatActivity{
         txtDescripcion.setText(reportes.getDescripcion());
         int estado = reportes.getRevisado();
         mostrarEstado(estado);
-        txtFechaRegistro.setText("Fecha de registro: "+reportes.getFecha());
+        //txtFechaRegistro.setText("Fecha de registro: "+reportes.getFecha());
+        txtFechaRegistro.setText("Fecha de registro: Aqui se concatena la fecha");
         //txtStatus.setText(reportes.getRevisado());
         /*
         //txtApMaterno.setText(persona.getApMaterno());
