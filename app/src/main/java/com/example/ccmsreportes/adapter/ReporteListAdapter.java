@@ -40,7 +40,7 @@ public class ReporteListAdapter extends RecyclerView.Adapter<ReporteListAdapter.
     @Override
     @SuppressLint("RecyclerView")
     public void onBindViewHolder(@NonNull ReporteListAdapter.MyViewHolder holder,  int position) {
-        holder.labelID_Reporte.setText(String.valueOf((this.reportesList.get(position).getId_Reporte())));
+        holder.labelID_Reporte.setText(String.valueOf((this.reportesList.get(position).getIdReporte())));
         holder.labelDescripcion.setText(this.reportesList.get(position).getDescripcion());
         String estadoReporte = String.valueOf(this.reportesList.get(position).getRevisado());
         if (estadoReporte.equals("0")){

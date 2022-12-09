@@ -14,12 +14,18 @@ import android.util.Log;
 import android.view.View;
 
 import com.example.ccmsreportes.adapter.ReporteListAdapter;
+import com.example.ccmsreportes.api.LocalNetworkAPI;
 import com.example.ccmsreportes.model.Reportes;
 import com.example.ccmsreportes.model.ResultReportes;
 import com.example.ccmsreportes.viewmodel.ListaReporteViewModel;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 
 import java.util.List;
+
+import retrofit2.Call;
+import retrofit2.Retrofit;
+import retrofit2.converter.gson.GsonConverterFactory;
+
 public class ListActivity extends AppCompatActivity implements ReporteListAdapter.ElementClickListener {
 
     private ListaReporteViewModel listaReporteViewModel;
@@ -55,7 +61,10 @@ public class ListActivity extends AppCompatActivity implements ReporteListAdapte
         listaReporteViewModel = new ViewModelProvider(this).get(ListaReporteViewModel.class);
         resultReportes = new ResultReportes();
         listaReporteViewModel.CallServiceGetReporte(1);
-        reporteListAdapter = new ReporteListAdapter(this,resultReportes.getResults(),this);
+        reporteListAdapter = new ReporteListAdapter(this,resultReportes.getReporte(),this);
+
+
+
         recyclerView.setAdapter(reporteListAdapter);
         ////Esta linea fue modificada
         ///listaReporteViewModel.setReporte(List<ResultReportes>.getAll());
@@ -68,7 +77,7 @@ public class ListActivity extends AppCompatActivity implements ReporteListAdapte
             public void onChanged(ResultReportes reportesList) {
                 if(reportesList !=null) {
                     resultReportes = reportesList;
-                    reporteListAdapter.setReportesList(resultReportes.getResults());
+                    reporteListAdapter.setReportesList(resultReportes.getReporte());
                 }
             }
         };

@@ -69,7 +69,7 @@ public class MainActivity extends AppCompatActivity {
                 //reportesRepositorio.insert(reportes);
                 Toast.makeText(MainActivity.this,"Reporte registrado correctamente...",Toast.LENGTH_SHORT).show();
                 ////Supongo que aui se consume la api......................
-                localNetworkAPI = ServiceRetrofit.getClient().create(LocalNetworkAPI.class);
+                localNetworkAPI = ServiceRetrofit.getListReportes().create(LocalNetworkAPI.class);
                 retrofit2.Call<ResponseReporte> call = localNetworkAPI.setReporte(reportes);
                 call.enqueue(new Callback<ResponseReporte>(){
                     @Override

@@ -6,11 +6,15 @@ import com.google.gson.annotations.SerializedName;
 import java.util.List;
 
 public class ResultReportes {
-    @SerializedName("results")
+    @SerializedName("Reporte")
     @Expose
-    private List<Reportes> results;
+    private List<Reportes> reporte = null;
 
-    public List<Reportes> getResults(){return results;}
+    public List<Reportes> getReporte() {
+        return reporte;
+    }
 
-    public void setResults(List<Reportes> results){ this.results = results;}
+    public void setReporte(List<Reportes> reporte) {
+        this.reporte = reporte;
+    }
 }

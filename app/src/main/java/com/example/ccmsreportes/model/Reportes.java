@@ -15,28 +15,22 @@ import java.util.Date;
 
 public class Reportes
 {
-
-    ///el idREporte es la id de la Malfuncion
-    @SerializedName("Id_Malfuncion")
+    @SerializedName("id_Reporte")
     @Expose
-    private int id_Reporte;
-
+    private Integer idReporte;
     @SerializedName("Descripcion")
     @Expose
     private String descripcion;
-
     @SerializedName("Revisado")
     @Expose
-    private int revisado;
+    private Integer revisado;
 
-    public Reportes(){}
-
-    ///// Get and set
-    public int getId_Reporte() {
-        return id_Reporte;
+    public Integer getIdReporte() {
+        return idReporte;
     }
-    public void setId_Reporte(int id_Reporte) {
-        this.id_Reporte = id_Reporte;
+
+    public void setIdReporte(Integer idReporte) {
+        this.idReporte = idReporte;
     }
 
     public String getDescripcion() {
@@ -47,11 +41,11 @@ public class Reportes
         this.descripcion = descripcion;
     }
 
-    public int getRevisado() {
+    public Integer getRevisado() {
         return revisado;
     }
 
-    public void setRevisado(int revisado) {
+    public void setRevisado(Integer revisado) {
         this.revisado = revisado;
     }
 }

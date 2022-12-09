@@ -35,7 +35,7 @@ public class UpdDelActivity extends AppCompatActivity{
         //label
         lblId=(TextView) findViewById(R.id.label_iDReporte);
 
-        lblId.setText("Numero de reporte: "+String.valueOf(reportes.getId_Reporte()));
+        lblId.setText("Numero de reporte: "+String.valueOf(reportes.getIdReporte()));
         txtDescripcion.setText(reportes.getDescripcion());
         int estado = reportes.getRevisado();
         mostrarEstado(estado);
