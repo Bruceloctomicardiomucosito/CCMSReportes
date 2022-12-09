@@ -40,6 +40,11 @@ public class ListActivity extends AppCompatActivity implements ReporteListAdapte
         setContentView(R.layout.activity_list);
         //Log.i("Paulino dice","Me gustan las monas chinas");
 
+        Bundle resultIntent = getIntent().getExtras();
+        String NameProfesor = resultIntent.getString("NameProf");
+
+        Toast.makeText(ListActivity.this,NameProfesor,Toast.LENGTH_SHORT).show();
+
         //btnNewReporte = (Button) findViewById(R.id.btnNewReporte);
         btnNewReporte = (FloatingActionButton) findViewById(R.id.btnNewReporte);
 

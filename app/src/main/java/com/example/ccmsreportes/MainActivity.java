@@ -11,6 +11,7 @@ import android.widget.Toast;
 import androidx.appcompat.app.AppCompatActivity;
 
 import com.example.ccmsreportes.api.LocalNetworkAPI;
+import com.example.ccmsreportes.model.InsertReporte;
 import com.example.ccmsreportes.model.Reportes;
 import com.example.ccmsreportes.model.ResponseReporte;
 import com.example.ccmsreportes.service.ServiceRetrofit;
@@ -25,7 +26,7 @@ public class MainActivity extends AppCompatActivity {
     private EditText nombreUsusario, id_Dispositivo, descripcion;
     private Button guardadReporte, btnSiguiente;
     //////
-    private Reportes reportes;
+    private InsertReporte ReporteIn;
     private LocalNetworkAPI localNetworkAPI;
     //////
     @Override
@@ -56,24 +57,25 @@ public class MainActivity extends AppCompatActivity {
         guardadReporte.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                reportes = new Reportes();
+                ReporteIn = new InsertReporte();
                 String i = id_Dispositivo.getText().toString();
                 int id = Integer.parseInt(i);
-                //reportes.setIdDevice(id);
-                LocalDate fechaRegistro = LocalDate.now();
-                //reportes.setFecha(fechaRegistro.toString());
-                reportes.setDescripcion(descripcion.getText().toString());
-                //reportes.setNombreProf("Calonsho Mora");
-                //reportes.setIdProf(1);
-                reportes.setRevisado(1);
-                //reportesRepositorio.insert(reportes);
-                Toast.makeText(MainActivity.this,"Reporte registrado correctamente...",Toast.LENGTH_SHORT).show();
+                ReporteIn.setDescripcion(descripcion.getText().toString());
+                ReporteIn.setIdProfesor(1);
+                ReporteIn.setNombreProfesor("cesar");
+                ReporteIn.setIdDispositivo(id);
                 ////Supongo que aui se consume la api......................
+<<<<<<< Updated upstream
                 localNetworkAPI = ServiceRetrofit.getClient().create(LocalNetworkAPI.class);
                 retrofit2.Call<ResponseReporte> call = localNetworkAPI.setReporte(reportes);
+=======
+                localNetworkAPI = ServiceRetrofit.getListReportes().create(LocalNetworkAPI.class);
+                retrofit2.Call<ResponseReporte> call = localNetworkAPI.setReporte(ReporteIn);
+>>>>>>> Stashed changes
                 call.enqueue(new Callback<ResponseReporte>(){
                     @Override
                     public void onResponse(retrofit2.Call<ResponseReporte> call, Response<ResponseReporte> response) {
+                        Toast.makeText(MainActivity.this,response.body().getMsg(),Toast.LENGTH_SHORT).show();
                         if (response.isSuccessful())
                         {
                             Log.d("RespuestaBien",response.message());

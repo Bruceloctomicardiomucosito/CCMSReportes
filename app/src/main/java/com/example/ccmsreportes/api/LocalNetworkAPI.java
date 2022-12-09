@@ -1,8 +1,15 @@
 package com.example.ccmsreportes.api;
 
+<<<<<<< Updated upstream
+=======
+import com.example.ccmsreportes.model.DetallesReporte;
+import com.example.ccmsreportes.model.InsertReporte;
+>>>>>>> Stashed changes
 import com.example.ccmsreportes.model.Reportes;
 import com.example.ccmsreportes.model.ResultReportes;
 import com.example.ccmsreportes.model.ResponseReporte;
+import com.example.ccmsreportes.model.Usuario.LoginProfesor;
+import com.example.ccmsreportes.model.Usuario.ProfesorResponse;
 
 import retrofit2.Call;
 import retrofit2.http.Body;
@@ -35,14 +42,11 @@ public interface LocalNetworkAPI {///Aaah si miira... aqui tengo la interface...
     Call<ResultReportes> getListReportes(@Path("idProf") int id); ////Zimon- aaah vamos para allá--- Se usa aaqui ...
 
     @Headers({"Content-Type: application/json"})
-    @POST("reportes")
-    Call<ResponseReporte> setReporte(@Body Reportes reportes);
+    @POST("addReporte")
+    Call<ResponseReporte> setReporte(@Body InsertReporte reportes);
 
     @Headers({"Content-Type: application/json"})
-    @DELETE("reportes/{id}")
-    Call<ResponseReporte> setReporte(@Path("id") int id);
+    @POST("login")
+    Call<ProfesorResponse> loginFun(@Body LoginProfesor proToLogin);
 
-    @Headers({"Content-Type: application/json"})
-    @PUT("reportes/{id}")
-    Call<ResponseReporte> setReporte(@Path("id") int id, @Body Reportes reportes);
 }
