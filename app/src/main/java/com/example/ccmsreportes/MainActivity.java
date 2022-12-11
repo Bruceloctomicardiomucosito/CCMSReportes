@@ -51,6 +51,9 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 Intent i= new Intent(MainActivity.this, ListActivity.class);
+//                Bundle mBundle = new Bundle();
+//                mBundle.putInt("status",0);
+//                i.putExtras(mBundle);
                 startActivity(i);
             }
         });
@@ -61,8 +64,8 @@ public class MainActivity extends AppCompatActivity {
                 String i = id_Dispositivo.getText().toString();
                 int id = Integer.parseInt(i);
                 ReporteIn.setDescripcion(descripcion.getText().toString());
-                ReporteIn.setIdProfesor(1);
-                ReporteIn.setNombreProfesor("cesar");
+                ReporteIn.setIdProfesor(Login.proflogged.getIdPorfe());
+                ReporteIn.setNombreProfesor(Login.proflogged.getNombre() +" "+ Login.proflogged.getApellidos());
                 ReporteIn.setIdDispositivo(id);
                 ////Supongo que aui se consume la api......................
                 localNetworkAPI = ServiceRetrofit.getListaReportes().create(LocalNetworkAPI.class);

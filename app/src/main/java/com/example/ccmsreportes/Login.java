@@ -37,10 +37,11 @@ public class Login extends AppCompatActivity {
     private Button btnIniciarSesion;
 
     private LoginProfesor logProf;
-    private Profesor proflogged;
+    public static Profesor proflogged;
     private ProfesorResponse resProfe;
 
     private LocalNetworkAPI localNetworkAPI;
+
 
 
     //ObtenerWebService hiloConexion;
@@ -75,6 +76,7 @@ public class Login extends AppCompatActivity {
                     public void onResponse(Call<ProfesorResponse> call, Response<ProfesorResponse> response) {
                         proflogged = new Profesor();
                         proflogged = response.body().getProfesor();
+
 //                        Toast.makeText(Login.this,response.body().getProfesor().getNombre(),Toast.LENGTH_SHORT).show();
                         Log.i("ubicacion",response.body().getProfesor().getNombre());
                         if (usuario.length() <= 0 || contraseña.length() <= 0)
@@ -86,11 +88,13 @@ public class Login extends AppCompatActivity {
                             if (response.body().getResultado() == 1) {
                                 Toast.makeText(Login.this,"Bienvenid@ "+proflogged.getNombre(),Toast.LENGTH_SHORT).show();
                                 Intent i= new Intent(Login.this, ListActivity.class);
-                                Bundle mBundle = new Bundle();
-                                mBundle.putString("NameProf", proflogged.getNombre());
-                                mBundle.putString("ApeProf", proflogged.getApellidos());
-                                mBundle.putString("ifProfLogged", proflogged.getUsername());
-                                i.putExtras(mBundle);
+//                                Bundle mBundle = new Bundle();
+//                                mBundle.putInt("status",1);
+////                                mBundle.putString("NameProf", proflogged.getNombre());
+////                                mBundle.putString("ApeProf", proflogged.getApellidos());
+////                                mBundle.putString("ifProfLogged", proflogged.getUsername());
+//
+//                                i.putExtras(mBundle);
                                 startActivity(i);
                             }
                             else

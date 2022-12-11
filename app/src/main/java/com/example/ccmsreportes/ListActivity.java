@@ -19,6 +19,7 @@ import com.example.ccmsreportes.model.Reportes;
 import com.example.ccmsreportes.model.ResultReportes;
 import com.example.ccmsreportes.viewmodel.ListaReporteViewModel;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
+import com.example.ccmsreportes.Login;
 
 import java.util.List;
 public class ListActivity extends AppCompatActivity implements ReporteListAdapter.ElementClickListener {
@@ -29,6 +30,7 @@ public class ListActivity extends AppCompatActivity implements ReporteListAdapte
     private LinearLayoutManager linearLayoutManager;
     private ReporteListAdapter reporteListAdapter;
     private FloatingActionButton  btnNewReporte;
+    private String NameProfesor;
     /*
     private List<Reportes> reportes;
     private LiveData<ResultReportes> reportesLiveData;
@@ -41,8 +43,12 @@ public class ListActivity extends AppCompatActivity implements ReporteListAdapte
         setContentView(R.layout.activity_list);
         //Log.i("Paulino dice","Me gustan las monas chinas");
 
-        Bundle resultIntent = getIntent().getExtras();
-        String NameProfesor = resultIntent.getString("NameProf");
+//        Bundle resultIntent = getIntent().getExtras();
+//        if(resultIntent.getInt("status") == 1){
+//            NameProfesor = resultIntent.getString("NameProf");
+//        }
+
+        Toast.makeText(ListActivity.this,"Bienvenid@ "+Login.proflogged.getNombre(),Toast.LENGTH_SHORT).show();
 
 //        Toast.makeText(ListActivity.this,"Bienvenid@ "+NameProfesor,Toast.LENGTH_SHORT).show();
 
@@ -60,7 +66,7 @@ public class ListActivity extends AppCompatActivity implements ReporteListAdapte
 
         listaReporteViewModel = new ViewModelProvider(this).get(ListaReporteViewModel.class);
         resultReportes = new ResultReportes();
-        listaReporteViewModel.CallServiceGetReporte(1);
+        listaReporteViewModel.CallServiceGetReporte(Login.proflogged.getIdPorfe());
         reporteListAdapter = new ReporteListAdapter(this,resultReportes.getReporte(),this);
         recyclerView.setAdapter(reporteListAdapter);
         ////Esta linea fue modificada

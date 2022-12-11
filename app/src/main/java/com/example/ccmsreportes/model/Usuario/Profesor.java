@@ -10,6 +10,9 @@ public class Profesor {
     @SerializedName("Apellidos")
     @Expose
     private String apellidos;
+    @SerializedName("idPorfe")
+    @Expose
+    private Integer idPorfe;
     @SerializedName("Username")
     @Expose
     private String username;
@@ -37,6 +40,19 @@ public class Profesor {
 
     public Profesor withApellidos(String apellidos) {
         this.apellidos = apellidos;
+        return this;
+    }
+
+    public Integer getIdPorfe() {
+        return idPorfe;
+    }
+
+    public void setIdPorfe(Integer idPorfe) {
+        this.idPorfe = idPorfe;
+    }
+
+    public Profesor withIdPorfe(Integer idPorfe) {
+        this.idPorfe = idPorfe;
         return this;
     }
 

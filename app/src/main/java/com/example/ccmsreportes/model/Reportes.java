@@ -33,6 +33,11 @@ public class Reportes
         this.idReporte = idReporte;
     }
 
+    public Reportes withIdReporte(Integer idReporte) {
+        this.idReporte = idReporte;
+        return this;
+    }
+
     public String getDescripcion() {
         return descripcion;
     }
@@ -41,12 +46,22 @@ public class Reportes
         this.descripcion = descripcion;
     }
 
+    public Reportes withDescripcion(String descripcion) {
+        this.descripcion = descripcion;
+        return this;
+    }
+
     public Integer getRevisado() {
         return revisado;
     }
 
     public void setRevisado(Integer revisado) {
         this.revisado = revisado;
+    }
+
+    public Reportes withRevisado(Integer revisado) {
+        this.revisado = revisado;
+        return this;
     }
 }
 /*

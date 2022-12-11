@@ -29,11 +29,11 @@ public class ListaReporteViewModel extends ViewModel{
     public  LiveData<ResultReportes> getReportes(){return list;}
     public void setReporte(ResultReportes list){this.list.setValue(list);}
     /////Llamar al servicio
-    public void CallServiceGetReporte(int page){
+    public void CallServiceGetReporte(int idProfe){
 
         localNetworkAPI = ServiceRetrofit.getListaReportes().create(LocalNetworkAPI.class);
 
-        retrofit2.Call<ResultReportes> call = localNetworkAPI.getListReportes(1);///Aqui le mandas el id de lo que quieres consultar
+        retrofit2.Call<ResultReportes> call = localNetworkAPI.getListReportes(idProfe);///Aqui le mandas el id de lo que quieres consultar
         ///Esta es la respuesta de la consulta.....
         call.enqueue(new Callback<ResultReportes>() {
             @Override
