@@ -11,12 +11,14 @@ public class ServiceRetrofit {
     public static String BASE_URL = "http://192.168.1.13:3000/";
     //public static String BASE_URL = "http://192.168.100.5:3000/";
     private static Retrofit INSTANCE = null;
-    public static Retrofit getListReportes(){
-        OkHttpClient  client = new OkHttpClient.Builder()
-                .connectTimeout(10, TimeUnit.SECONDS)
-                .writeTimeout(10, TimeUnit.SECONDS)
-                .readTimeout(30, TimeUnit.SECONDS)
+    public static Retrofit getListaReportes(){
+
+        OkHttpClient client = new OkHttpClient.Builder()
+                .connectTimeout(5, TimeUnit.SECONDS)
+                .writeTimeout(5, TimeUnit.SECONDS)
+                .readTimeout(10, TimeUnit.SECONDS)
                 .build();
+
         if (INSTANCE==null){
             INSTANCE = new Retrofit.Builder().baseUrl(BASE_URL).addConverterFactory(GsonConverterFactory.create()).client(client).build();
         }

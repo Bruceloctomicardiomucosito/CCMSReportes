@@ -1,9 +1,12 @@
 package com.example.ccmsreportes.api;
 
 import com.example.ccmsreportes.model.DetallesReporte;
+import com.example.ccmsreportes.model.InsertReporte;
 import com.example.ccmsreportes.model.Reportes;
 import com.example.ccmsreportes.model.ResultReportes;
 import com.example.ccmsreportes.model.ResponseReporte;
+import com.example.ccmsreportes.model.Usuario.LoginProfesor;
+import com.example.ccmsreportes.model.Usuario.ProfesorResponse;
 
 import retrofit2.Call;
 import retrofit2.http.Body;
@@ -35,18 +38,15 @@ public interface LocalNetworkAPI {///Aaah si miira... aqui tengo la interface...
     @GET("/getReportesProfe/{idProf}") ///Recibe y envia el id ... aah entiendo ...
     Call<ResultReportes> getListReportes(@Path("idProf") int id); ////Zimon- aaah vamos para allá--- Se usa aaqui ...
 
+    @Headers({"Content-Type: application/json"})
+    @POST("addReporte")
+    Call<ResponseReporte> setReporte(@Body InsertReporte reportes);
+
+    @Headers({"Content-Type: application/json"})
+    @POST("login")
+    Call<ProfesorResponse> loginFun(@Body LoginProfesor proToLogin);
+
     @GET("/getDetallesReporte/{idRep}")
     Call<DetallesReporte> getDetalleReporte(@Path("idRep") int id);
 
-    @Headers({"Content-Type: application/json"})
-    @POST("reportes")
-    Call<ResponseReporte> setReporte(@Body Reportes reportes);
-
-    @Headers({"Content-Type: application/json"})
-    @DELETE("reportes/{id}")
-    Call<ResponseReporte> setReporte(@Path("id") int id);
-
-    @Headers({"Content-Type: application/json"})
-    @PUT("reportes/{id}")
-    Call<ResponseReporte> setReporte(@Path("id") int id, @Body Reportes reportes);
 }

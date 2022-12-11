@@ -3,11 +3,14 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
-        <entry key="..\:/Users/JAlon/OneDrive/Escritorio/Nueva carpeta/CCMSReportes/app/src/main/res/layout/activity_list.xml" value="0.2015625" />
+m        <entry key="..\:/Users/JAlon/OneDrive/Escritorio/Nueva carpeta/CCMSReportes/app/src/main/res/layout/activity_list.xml" value="0.2015625" />
         <entry key="..\:/Users/JAlon/OneDrive/Escritorio/Nueva carpeta/CCMSReportes/app/src/main/res/layout/activity_main.xml" value="0.2015625" />
         <entry key="..\:/Users/JAlon/OneDrive/Escritorio/Nueva carpeta/CCMSReportes/app/src/main/res/layout/activity_reporte_detalle.xml" value="0.2015625" />
         <entry key="..\:/Users/JAlon/OneDrive/Escritorio/Nueva carpeta/CCMSReportes/app/src/main/res/layout/activity_upd_del.xml" value="0.2015625" />
         <entry key="..\:/Users/JAlon/OneDrive/Escritorio/Nueva carpeta/CCMSReportes/app/src/main/res/layout/renglon_reporte.xml" value="0.2015625" />
+
+        <entry key="..\:/Users/JAlon/OneDrive/Escritorio/Nueva carpeta/CCMSReportes/app/src/main/res/layout/activity_upd_del.xml" value="0.2015625" />
+
       </map>
     </option>
   </component>

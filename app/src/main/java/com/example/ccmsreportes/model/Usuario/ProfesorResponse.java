@@ -1,14 +1,15 @@
-package com.example.ccmsreportes.model;
+package com.example.ccmsreportes.model.Usuario;
 
 import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;
-public class ResponseReporte {
+
+public class ProfesorResponse {
     @SerializedName("resultado")
     @Expose
     private Integer resultado;
-    @SerializedName("msg")
+    @SerializedName("Profesor")
     @Expose
-    private String msg;
+    private Profesor profesor;
 
     public Integer getResultado() {
         return resultado;
@@ -18,21 +19,21 @@ public class ResponseReporte {
         this.resultado = resultado;
     }
 
-    public ResponseReporte withResultado(Integer resultado) {
+    public ProfesorResponse withResultado(Integer resultado) {
         this.resultado = resultado;
         return this;
     }
 
-    public String getMsg() {
-        return msg;
+    public Profesor getProfesor() {
+        return profesor;
     }
 
-    public void setMsg(String msg) {
-        this.msg = msg;
+    public void setProfesor(Profesor profesor) {
+        this.profesor = profesor;
     }
 
-    public ResponseReporte withMsg(String msg) {
-        this.msg = msg;
+    public ProfesorResponse withProfesor(Profesor profesor) {
+        this.profesor = profesor;
         return this;
     }
 }

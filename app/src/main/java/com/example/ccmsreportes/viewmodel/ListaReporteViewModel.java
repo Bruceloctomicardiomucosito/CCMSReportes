@@ -6,7 +6,6 @@ import androidx.lifecycle.LiveData;
 import androidx.lifecycle.MutableLiveData;
 import androidx.lifecycle.ViewModel;
 
-import com.example.ccmsreportes.Login;
 import com.example.ccmsreportes.api.LocalNetworkAPI;
 import com.example.ccmsreportes.model.ResultReportes;
 import com.example.ccmsreportes.service.ServiceRetrofit;
@@ -16,7 +15,6 @@ import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
 import android.util.Log;
-import android.widget.Toast;
 
 public class ListaReporteViewModel extends ViewModel{
     ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
@@ -33,7 +31,7 @@ public class ListaReporteViewModel extends ViewModel{
     /////Llamar al servicio
     public void CallServiceGetReporte(int page){
 
-        localNetworkAPI = ServiceRetrofit.getListReportes().create(LocalNetworkAPI.class);
+        localNetworkAPI = ServiceRetrofit.getListaReportes().create(LocalNetworkAPI.class);
 
         retrofit2.Call<ResultReportes> call = localNetworkAPI.getListReportes(1);///Aqui le mandas el id de lo que quieres consultar
         ///Esta es la respuesta de la consulta.....
@@ -43,7 +41,7 @@ public class ListaReporteViewModel extends ViewModel{
             public void onResponse(Call<ResultReportes> call, Response<ResultReportes> response) {
                 Log.i("ubicacion","inicio de metodo");
                 if(response.isSuccessful()){
-                    Log.i("ubicacion",response.body().getReporte().toString());
+                    Log.i("ubicacion","Entra al if");
                     list.postValue(response.body());
                 }
             }///Simona simona.. no sabemos si trae los datos.. tienes razon ... a ver .. toy ivestigando como imndo com inrpimir los JSONS
@@ -52,6 +50,7 @@ public class ListaReporteViewModel extends ViewModel{
             ///Paciencia
             public void onFailure(Call<ResultReportes> call, Throwable t) {
                 Log.i("ubicacion","Entra al else");
+                list.postValue(null);
             }
         }); ////chiale.. no sé como comstrar esos logs en java xdxd deja veo como a ver que encuentro
     }

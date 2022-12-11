@@ -15,18 +15,12 @@ import android.view.View;
 import android.widget.Toast;
 
 import com.example.ccmsreportes.adapter.ReporteListAdapter;
-import com.example.ccmsreportes.api.LocalNetworkAPI;
 import com.example.ccmsreportes.model.Reportes;
 import com.example.ccmsreportes.model.ResultReportes;
 import com.example.ccmsreportes.viewmodel.ListaReporteViewModel;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 
 import java.util.List;
-
-import retrofit2.Call;
-import retrofit2.Retrofit;
-import retrofit2.converter.gson.GsonConverterFactory;
-
 public class ListActivity extends AppCompatActivity implements ReporteListAdapter.ElementClickListener {
 
     private ListaReporteViewModel listaReporteViewModel;
@@ -47,6 +41,11 @@ public class ListActivity extends AppCompatActivity implements ReporteListAdapte
         setContentView(R.layout.activity_list);
         //Log.i("Paulino dice","Me gustan las monas chinas");
 
+        Bundle resultIntent = getIntent().getExtras();
+        String NameProfesor = resultIntent.getString("NameProf");
+
+//        Toast.makeText(ListActivity.this,"Bienvenid@ "+NameProfesor,Toast.LENGTH_SHORT).show();
+
         //btnNewReporte = (Button) findViewById(R.id.btnNewReporte);
         btnNewReporte = (FloatingActionButton) findViewById(R.id.btnNewReporte);
 
@@ -63,9 +62,6 @@ public class ListActivity extends AppCompatActivity implements ReporteListAdapte
         resultReportes = new ResultReportes();
         listaReporteViewModel.CallServiceGetReporte(1);
         reporteListAdapter = new ReporteListAdapter(this,resultReportes.getReporte(),this);
-
-
-
         recyclerView.setAdapter(reporteListAdapter);
         ////Esta linea fue modificada
         ///listaReporteViewModel.setReporte(List<ResultReportes>.getAll());
@@ -94,7 +90,7 @@ public class ListActivity extends AppCompatActivity implements ReporteListAdapte
         });
     }
     @Override
-    public void onElementClick(Reportes reportes) {
+    public void onElementClick(Reportes reporte) {
         //  Toast.makeText(this, persona.getNombre().toString() + " " + persona.getApPaterno().toString(),
         //        Toast.LENGTH_SHORT).show();
 
@@ -104,6 +100,7 @@ public class ListActivity extends AppCompatActivity implements ReporteListAdapte
     public void onBtnElementClick(Reportes reporte) {
         //Toast.makeText(this, persona.getNombre().toString() + " " + persona.getApPaterno().toString(),
         //      Toast.LENGTH_SHORT).show();
+
 
 
         Intent intent = new Intent(ListActivity.this, UpdDelActivity.class);

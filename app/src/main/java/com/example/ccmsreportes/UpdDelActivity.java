@@ -50,7 +50,7 @@ public class UpdDelActivity extends AppCompatActivity{
         //label
         txtDispositivo=(TextView) findViewById(R.id.txtDispositvoInfo);
 
-        localNetworkAPI = ServiceRetrofit.getListReportes().create(LocalNetworkAPI.class);
+        localNetworkAPI = ServiceRetrofit.getListaReportes().create(LocalNetworkAPI.class);
 
         retrofit2.Call<DetallesReporte> call = localNetworkAPI.getDetalleReporte(idReporte);
 
